@@ -1,5 +1,7 @@
 django <4.3.0,>=4.2.6
-python-decouple==3.6
-flake8
-django-debug-toolbar
 django_admin_generator
+django-debug-toolbar
+django-extensions==3.2.3
+flake8
+python-decouple==3.6
+Werkzeug==3.0.0
