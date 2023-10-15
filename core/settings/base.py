@@ -58,6 +58,8 @@ if SHOW_STARTUP_DETAILS:
 # Application definition
 
 INSTALLED_APPS = [
+    'dj_tracker',
+    # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,6 +73,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'dj_tracker.middleware.DjTrackerMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -176,6 +179,10 @@ STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
     BASE_DIR / "assets"
 ]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+]
+
 
 MEDIA_ROOT = BASE_DIR / "media"
 

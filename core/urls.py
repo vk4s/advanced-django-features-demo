@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django import urls
+
+from dj_tracker.urls import urlpatterns as dj_tracker_urls
 
 
 urlpatterns = [
+    # path('grappelli/', include('grappelli.urls')),  # grappelli URLS
     path('admin/', admin.site.urls),
+    path("dj-tracker/", include(dj_tracker_urls)),
     path('', include('biolinks.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
