@@ -10,10 +10,6 @@ class Command(BaseCommand):
         # optional argument (remove -- to make positional argument)
         parser.add_argument("--user-emails", nargs="+", type=str)
 
-    def handle2(self, *args, **options):
-        for biolink in BioLink.objects.all():
-            self.stdout.write(self.style.SUCCESS(biolink.link))
-
     def handle(self, *args, **options):
         biolinks = []
         if 'user_emails' in options and options["user_emails"] is not None:
