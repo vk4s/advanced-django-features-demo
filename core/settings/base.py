@@ -13,11 +13,20 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 SECRET_KEY = config('SECRET_KEY', default='$2b$12$H.uDdnSIoQ/5RkXq9HlDaO9uKQwq5epdvskn%t)dfqseM9z1EKldYa')
 
+print('secret key', SECRET_KEY)
+
 ALLOWED_HOSTS = []
 extend_allowed_hosts = config('ALLOWED_HOSTS', default='localhost, 127.0.0.1')
 if extend_allowed_hosts is not None:
     # remove spaces around the host and add it to the allowed hosts
     ALLOWED_HOSTS.extend(list(map(str.strip, extend_allowed_hosts.split(','))))
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+
 
 # Email server setup
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -56,11 +65,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party apps
+    'debug_toolbar',
+    'django_admin_generator',
     # applications
     'users',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
