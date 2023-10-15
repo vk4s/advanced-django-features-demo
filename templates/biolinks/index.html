@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bio Links</title>
+
+        <link rel="stylesheet" href="/static/vendor/css/pico-css/pico.classless.min.css" />
+        <link rel="stylesheet" href="/static/vendor/css/pico-css/pico.min.css" />
+    </head>
+    <body class="container">
+        <header>
+            <a href="/" style="max-width: max-content; text-decoration: underline;">
+                home
+            </a>
+            <a href="/add/" style="max-width: max-content; padding: 0 0 25px 25px;  text-decoration: underline;">
+                add new link
+            </a>
+            <a href="/my/" style="max-width: max-content; padding: 0 25px; text-decoration: underline;">
+                my links
+            </a>
+            <a href="/admin/" style="max-width: max-content; text-decoration: underline;">
+                admin
+            </a>
+        </header>
+
+        <h1>Bio Links of {% if request.user.is_authenticated %} {{ request.user }} {% else %} all users {% endif %}</h1>
+        <ul>
+            {% for bio_link in bio_links %}
+            <li>
+                <a href="{{ bio_link.link }}" target="_blank">{{ bio_link.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <br>
+
+
+        <footer>
+            <small>&copy; 2023 | Vikash</small>
+        </footer>
+    </body>
+</html>

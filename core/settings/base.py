@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 from decouple import config
 
@@ -12,8 +13,6 @@ ENV = config('ENV', default='development', cast=str)
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 SECRET_KEY = config('SECRET_KEY', default='$2b$12$H.uDdnSIoQ/5RkXq9HlDaO9uKQwq5epdvskn%t)dfqseM9z1EKldYa')
-
-print('secret key', SECRET_KEY)
 
 ALLOWED_HOSTS = []
 extend_allowed_hosts = config('ALLOWED_HOSTS', default='localhost, 127.0.0.1')
@@ -68,6 +67,7 @@ INSTALLED_APPS = [
     # third party apps
     # applications
     'users',
+    'biolinks',
 ]
 
 MIDDLEWARE = [
@@ -96,7 +96,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -174,10 +174,13 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "static"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles"
+    BASE_DIR / "assets"
 ]
 
 MEDIA_ROOT = BASE_DIR / "media"
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
