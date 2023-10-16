@@ -179,15 +179,15 @@ STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
     BASE_DIR / "assets"
 ]
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
-]
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+# ]
 
 
 MEDIA_ROOT = BASE_DIR / "media"
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
