@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("dj-tracker/", include(dj_tracker_urls)),
     path('', include('biolinks.urls')),
+    path('blogs/', include('blogs.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     # applications
     'users',
     'biolinks',
+    'blogs'
 ]
 
 MIDDLEWARE = [

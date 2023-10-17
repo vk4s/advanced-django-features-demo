@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Home</title>
+
+
+    <link rel="stylesheet" href="/static/vendor/css/pico-css/pico.classless.min.css" />
+    <link rel="stylesheet" href="/static/vendor/css/pico-css/pico.min.css" />
+
+</head>
+<body class="container">
+    <h1>Blog Home</h1>
+    <ul>
+        {% for blog in blogs %}
+        <article>
+            <small>
+                <datetime>
+                    {{ blog.created_at }}
+                </datetime>
+                (Last updated: <datetime>{{ blog.updated_at }}</datetime> )</small>
+            <h3><a href="#" target="_blank">{{ blog.title }}</a></h3>
+            <p>{{ blog.summary }}</p>
+            <small>Written by - {{blog.author.email}}</small>
+        </article>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
