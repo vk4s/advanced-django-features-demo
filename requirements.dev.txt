@@ -6,4 +6,4 @@ django_grappelli
 django_trackings==0.6.2a0
 flake8
 python-decouple==3.6
-Werkzeug==3.0.0
+Werkzeug==3.0.1
